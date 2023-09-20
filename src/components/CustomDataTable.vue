@@ -12,8 +12,8 @@
       },
     },
     methods: {
-      openCreatePage() {
-        //edirect to create page
+      openCreateModal() {
+        this.$emit('open-create-modal')
       },
   },
   }
@@ -42,7 +42,7 @@
               color="primary"
               dark
               class="mb-2"
-              @click="openCreatePage"
+              @click="openCreateModal"
             >
               Novo
         </v-btn>

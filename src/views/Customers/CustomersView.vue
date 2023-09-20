@@ -1,16 +1,18 @@
 <script>
   import CustomDataTable from '@/components/CustomDataTable.vue'
+  import CustomersCreateForm from './CustomersCreate.vue'
 
   export default {
     components: {
-      'custom-data-table': CustomDataTable
+      'custom-data-table': CustomDataTable,
+      'create-customers-form': CustomersCreateForm
     },
     data () {
       return {
         itemsPerPage: 5,
         headers: [
           {
-            align: 'start',
+            align: 'center',
             key: 'id',
             sortable: false,
             title: 'ID',
@@ -34,8 +36,14 @@
             "dataNascimento": "1999-12-31",
           }
         ],
+        createDialog: false,
       }
     },
+    methods: {
+      openCreateModal () {
+        this.createDialog = true
+      }
+    }
   }
 </script>
 
@@ -44,10 +52,21 @@
     <v-responsive class="align-center text-center fill-height">
       <v-row class="customers">
         <v-col cols="12">
-          <custom-data-table title="Clientes" :headers="headers" :items="customers" :itemsPerPage="itemsPerPage" />
+          <custom-data-table title="Clientes" :headers="headers" :items="customers" :itemsPerPage="itemsPerPage" @open-create-modal="openCreateModal" />
         </v-col>
       </v-row>
     </v-responsive>
+      <v-dialog
+        v-model="createDialog"
+        width="auto"
+      >
+        <v-card>
+          <v-card-title class="text-center">
+            Cadastrar Cliente
+          </v-card-title>
+          <create-customers-form />
+        </v-card>
+      </v-dialog>
 </v-container>
 </template>
 

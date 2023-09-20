@@ -7,9 +7,9 @@
         v-model="tab"
         bg-color="white"
     >
-        <v-tab value="one" to="/customers">Clientes</v-tab>
-        <v-tab value="two" to="/products">Produtos</v-tab>
-        <v-tab value="three" to="/requests">Pedidos</v-tab>
+        <v-tab value="customers" to="/customers">Clientes</v-tab>
+        <v-tab value="products" to="/products">Produtos</v-tab>
+        <v-tab value="requests" to="/requests">Pedidos</v-tab>
     </v-tabs>
     </div>
     <v-spacer></v-spacer>
