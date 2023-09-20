@@ -42,6 +42,9 @@
     methods: {
       openCreateModal () {
         this.createDialog = true
+      },
+      closeCreateModal () {
+        this.createDialog = false
       }
     }
   }
@@ -64,10 +67,10 @@
           <v-card-title class="text-center">
             Cadastrar Cliente
           </v-card-title>
-          <create-customers-form />
+          <create-customers-form @close-create-modal="closeCreateModal" />
         </v-card>
       </v-dialog>
-</v-container>
+  </v-container>
 </template>
 
 <style>
