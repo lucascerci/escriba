@@ -1,6 +1,8 @@
 <script>
   import CustomDataTable from '@/components/CustomDataTable.vue'
   import CustomersCreateForm from './CustomersCreate.vue'
+  import { computed } from "vue";
+  import { useStore } from "vuex";
 
   export default {
     components: {
@@ -22,20 +24,6 @@
           { title: 'Data de Nascimento', key: 'dataNascimento' },
           { title: '', key: 'actionss' },
         ],
-        customers: [
-          {
-            "id": 1,
-            "nome": "cliente 1",
-            "cpf": "000.000.000-00",
-            "dataNascimento": "1999-12-31",
-          },
-          {
-            "id": 2,
-            "nome": "cliente 2",
-            "cpf": "000.000.001-00",
-            "dataNascimento": "1999-12-31",
-          }
-        ],
         createDialog: false,
       }
     },
@@ -46,7 +34,16 @@
       closeCreateModal () {
         this.createDialog = false
       }
-    }
+    },
+    setup() {
+      const store = useStore()
+      const customers = computed(() => store.getters["customer/getCustomers"])
+      store.dispatch("customer/fetchCustomers")
+
+      return {
+        customers,
+      };
+    },
   }
 </script>
 
