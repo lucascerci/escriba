@@ -1,7 +1,7 @@
 <template>
     <v-container>
       <v-sheet class="mx-auto">
-        <v-form fast-fail @submit.prevent>
+        <v-form ref="form" fast-fail @submit.prevent @submit="create">
           <v-row>
             <v-col cols="12">
               <v-text-field
@@ -34,19 +34,27 @@
             <v-btn
               color="blue-darken-1"
               variant="text"
-              @click="dialog = false"
+              @click="closeCreateModal"
             >
               Fechar
             </v-btn>
             <v-btn
-            type="submit"
+              type="submit"
               color="blue-darken-1"
               variant="text"
-              @click="dialog = false"
+              :loading="loading"
             >
               Criar
             </v-btn>
         </v-card-actions>
+        <div v-if="alertCreate">
+          <v-alert
+            type="success"
+            variant="outlined"
+          >
+              Cliente criado com sucesso.
+          </v-alert>
+        </div>
         </v-form>
       </v-sheet>
     </v-container>
@@ -54,6 +62,8 @@
 
 <script>
   import { validateCPF } from '@/plugins/cpfValidator'
+  import { useStore } from "vuex";
+
   export default {
     data: () => ({
       name: '',
@@ -69,10 +79,48 @@
         value => {
           if (value?.length >= 1 && validateCPF(value)) return true
 
-          return 'Insira um cpf valido'
+          return 'Insira um CPF valido'
         },
       ],
       birthDate: '',
+      alertCreate: false,
+      loading: false,
     }),
+    methods: {
+      async create () {
+        const { valid } = await this.$refs.form.validate()
+        if (valid) {
+          this.loading = true
+          const customer = {
+            nome: this.name,
+            cpf: this.cpf,
+            dataNascimento: this.birthDate
+          }
+
+          const response = await this.createCustomer(customer)
+          this.loading = false
+          if (response.status === 201) {
+            this.alertCreate = true
+            setTimeout(() => {
+              this.closeCreateModal()
+            }, 1000);
+          }
+        }
+      },
+      closeCreateModal () {
+        this.alertCreate = false
+        this.$emit('close-create-modal')
+      }
+    },
+    setup() {
+      const store = useStore()
+      const createCustomer = async (customer) => {
+          const response = store.dispatch("customer/createCustomer", customer)
+          return response
+      }
+      return {
+        createCustomer,
+      };
+    },
   }
 </script>

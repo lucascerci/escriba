@@ -11,6 +11,584 @@
       "nome": "cliente 2",
       "cpf": "000.000.001-00",
       "dataNascimento": "1999-12-31"
+    },
+    {
+      "id": 3
+    },
+    {
+      "customer": {
+        "getters": {
+          "getCustomers": [
+            {
+              "id": 1,
+              "nome": "cliente 1",
+              "cpf": "000.000.000-00",
+              "dataNascimento": "1999-12-31"
+            },
+            {
+              "id": 2,
+              "nome": "cliente 2",
+              "cpf": "000.000.001-00",
+              "dataNascimento": "1999-12-31"
+            },
+            {
+              "id": 3
+            }
+          ]
+        },
+        "state": {
+          "customers": [
+            {
+              "id": 1,
+              "nome": "cliente 1",
+              "cpf": "000.000.000-00",
+              "dataNascimento": "1999-12-31"
+            },
+            {
+              "id": 2,
+              "nome": "cliente 2",
+              "cpf": "000.000.001-00",
+              "dataNascimento": "1999-12-31"
+            },
+            {
+              "id": 3
+            }
+          ]
+        },
+        "rootGetters": {
+          "customer/getCustomers": [
+            {
+              "id": 1,
+              "nome": "cliente 1",
+              "cpf": "000.000.000-00",
+              "dataNascimento": "1999-12-31"
+            },
+            {
+              "id": 2,
+              "nome": "cliente 2",
+              "cpf": "000.000.001-00",
+              "dataNascimento": "1999-12-31"
+            },
+            {
+              "id": 3
+            }
+          ]
+        },
+        "rootState": {
+          "customer": {
+            "customers": [
+              {
+                "id": 1,
+                "nome": "cliente 1",
+                "cpf": "000.000.000-00",
+                "dataNascimento": "1999-12-31"
+              },
+              {
+                "id": 2,
+                "nome": "cliente 2",
+                "cpf": "000.000.001-00",
+                "dataNascimento": "1999-12-31"
+              },
+              {
+                "id": 3
+              }
+            ]
+          }
+        }
+      },
+      "id": 4
+    },
+    {
+      "customer": {
+        "getters": {
+          "getCustomers": [
+            {
+              "id": 1,
+              "nome": "cliente 1",
+              "cpf": "000.000.000-00",
+              "dataNascimento": "1999-12-31"
+            },
+            {
+              "id": 2,
+              "nome": "cliente 2",
+              "cpf": "000.000.001-00",
+              "dataNascimento": "1999-12-31"
+            },
+            {
+              "id": 3
+            },
+            {
+              "customer": {
+                "getters": {
+                  "getCustomers": [
+                    {
+                      "id": 1,
+                      "nome": "cliente 1",
+                      "cpf": "000.000.000-00",
+                      "dataNascimento": "1999-12-31"
+                    },
+                    {
+                      "id": 2,
+                      "nome": "cliente 2",
+                      "cpf": "000.000.001-00",
+                      "dataNascimento": "1999-12-31"
+                    },
+                    {
+                      "id": 3
+                    }
+                  ]
+                },
+                "state": {
+                  "customers": [
+                    {
+                      "id": 1,
+                      "nome": "cliente 1",
+                      "cpf": "000.000.000-00",
+                      "dataNascimento": "1999-12-31"
+                    },
+                    {
+                      "id": 2,
+                      "nome": "cliente 2",
+                      "cpf": "000.000.001-00",
+                      "dataNascimento": "1999-12-31"
+                    },
+                    {
+                      "id": 3
+                    }
+                  ]
+                },
+                "rootGetters": {
+                  "customer/getCustomers": [
+                    {
+                      "id": 1,
+                      "nome": "cliente 1",
+                      "cpf": "000.000.000-00",
+                      "dataNascimento": "1999-12-31"
+                    },
+                    {
+                      "id": 2,
+                      "nome": "cliente 2",
+                      "cpf": "000.000.001-00",
+                      "dataNascimento": "1999-12-31"
+                    },
+                    {
+                      "id": 3
+                    }
+                  ]
+                },
+                "rootState": {
+                  "customer": {
+                    "customers": [
+                      {
+                        "id": 1,
+                        "nome": "cliente 1",
+                        "cpf": "000.000.000-00",
+                        "dataNascimento": "1999-12-31"
+                      },
+                      {
+                        "id": 2,
+                        "nome": "cliente 2",
+                        "cpf": "000.000.001-00",
+                        "dataNascimento": "1999-12-31"
+                      },
+                      {
+                        "id": 3
+                      }
+                    ]
+                  }
+                }
+              },
+              "id": 4
+            }
+          ]
+        },
+        "state": {
+          "customers": [
+            {
+              "id": 1,
+              "nome": "cliente 1",
+              "cpf": "000.000.000-00",
+              "dataNascimento": "1999-12-31"
+            },
+            {
+              "id": 2,
+              "nome": "cliente 2",
+              "cpf": "000.000.001-00",
+              "dataNascimento": "1999-12-31"
+            },
+            {
+              "id": 3
+            },
+            {
+              "customer": {
+                "getters": {
+                  "getCustomers": [
+                    {
+                      "id": 1,
+                      "nome": "cliente 1",
+                      "cpf": "000.000.000-00",
+                      "dataNascimento": "1999-12-31"
+                    },
+                    {
+                      "id": 2,
+                      "nome": "cliente 2",
+                      "cpf": "000.000.001-00",
+                      "dataNascimento": "1999-12-31"
+                    },
+                    {
+                      "id": 3
+                    }
+                  ]
+                },
+                "state": {
+                  "customers": [
+                    {
+                      "id": 1,
+                      "nome": "cliente 1",
+                      "cpf": "000.000.000-00",
+                      "dataNascimento": "1999-12-31"
+                    },
+                    {
+                      "id": 2,
+                      "nome": "cliente 2",
+                      "cpf": "000.000.001-00",
+                      "dataNascimento": "1999-12-31"
+                    },
+                    {
+                      "id": 3
+                    }
+                  ]
+                },
+                "rootGetters": {
+                  "customer/getCustomers": [
+                    {
+                      "id": 1,
+                      "nome": "cliente 1",
+                      "cpf": "000.000.000-00",
+                      "dataNascimento": "1999-12-31"
+                    },
+                    {
+                      "id": 2,
+                      "nome": "cliente 2",
+                      "cpf": "000.000.001-00",
+                      "dataNascimento": "1999-12-31"
+                    },
+                    {
+                      "id": 3
+                    }
+                  ]
+                },
+                "rootState": {
+                  "customer": {
+                    "customers": [
+                      {
+                        "id": 1,
+                        "nome": "cliente 1",
+                        "cpf": "000.000.000-00",
+                        "dataNascimento": "1999-12-31"
+                      },
+                      {
+                        "id": 2,
+                        "nome": "cliente 2",
+                        "cpf": "000.000.001-00",
+                        "dataNascimento": "1999-12-31"
+                      },
+                      {
+                        "id": 3
+                      }
+                    ]
+                  }
+                }
+              },
+              "id": 4
+            }
+          ]
+        },
+        "rootGetters": {
+          "customer/getCustomers": [
+            {
+              "id": 1,
+              "nome": "cliente 1",
+              "cpf": "000.000.000-00",
+              "dataNascimento": "1999-12-31"
+            },
+            {
+              "id": 2,
+              "nome": "cliente 2",
+              "cpf": "000.000.001-00",
+              "dataNascimento": "1999-12-31"
+            },
+            {
+              "id": 3
+            },
+            {
+              "customer": {
+                "getters": {
+                  "getCustomers": [
+                    {
+                      "id": 1,
+                      "nome": "cliente 1",
+                      "cpf": "000.000.000-00",
+                      "dataNascimento": "1999-12-31"
+                    },
+                    {
+                      "id": 2,
+                      "nome": "cliente 2",
+                      "cpf": "000.000.001-00",
+                      "dataNascimento": "1999-12-31"
+                    },
+                    {
+                      "id": 3
+                    }
+                  ]
+                },
+                "state": {
+                  "customers": [
+                    {
+                      "id": 1,
+                      "nome": "cliente 1",
+                      "cpf": "000.000.000-00",
+                      "dataNascimento": "1999-12-31"
+                    },
+                    {
+                      "id": 2,
+                      "nome": "cliente 2",
+                      "cpf": "000.000.001-00",
+                      "dataNascimento": "1999-12-31"
+                    },
+                    {
+                      "id": 3
+                    }
+                  ]
+                },
+                "rootGetters": {
+                  "customer/getCustomers": [
+                    {
+                      "id": 1,
+                      "nome": "cliente 1",
+                      "cpf": "000.000.000-00",
+                      "dataNascimento": "1999-12-31"
+                    },
+                    {
+                      "id": 2,
+                      "nome": "cliente 2",
+                      "cpf": "000.000.001-00",
+                      "dataNascimento": "1999-12-31"
+                    },
+                    {
+                      "id": 3
+                    }
+                  ]
+                },
+                "rootState": {
+                  "customer": {
+                    "customers": [
+                      {
+                        "id": 1,
+                        "nome": "cliente 1",
+                        "cpf": "000.000.000-00",
+                        "dataNascimento": "1999-12-31"
+                      },
+                      {
+                        "id": 2,
+                        "nome": "cliente 2",
+                        "cpf": "000.000.001-00",
+                        "dataNascimento": "1999-12-31"
+                      },
+                      {
+                        "id": 3
+                      }
+                    ]
+                  }
+                }
+              },
+              "id": 4
+            }
+          ]
+        },
+        "rootState": {
+          "customer": {
+            "customers": [
+              {
+                "id": 1,
+                "nome": "cliente 1",
+                "cpf": "000.000.000-00",
+                "dataNascimento": "1999-12-31"
+              },
+              {
+                "id": 2,
+                "nome": "cliente 2",
+                "cpf": "000.000.001-00",
+                "dataNascimento": "1999-12-31"
+              },
+              {
+                "id": 3
+              },
+              {
+                "customer": {
+                  "getters": {
+                    "getCustomers": [
+                      {
+                        "id": 1,
+                        "nome": "cliente 1",
+                        "cpf": "000.000.000-00",
+                        "dataNascimento": "1999-12-31"
+                      },
+                      {
+                        "id": 2,
+                        "nome": "cliente 2",
+                        "cpf": "000.000.001-00",
+                        "dataNascimento": "1999-12-31"
+                      },
+                      {
+                        "id": 3
+                      }
+                    ]
+                  },
+                  "state": {
+                    "customers": [
+                      {
+                        "id": 1,
+                        "nome": "cliente 1",
+                        "cpf": "000.000.000-00",
+                        "dataNascimento": "1999-12-31"
+                      },
+                      {
+                        "id": 2,
+                        "nome": "cliente 2",
+                        "cpf": "000.000.001-00",
+                        "dataNascimento": "1999-12-31"
+                      },
+                      {
+                        "id": 3
+                      }
+                    ]
+                  },
+                  "rootGetters": {
+                    "customer/getCustomers": [
+                      {
+                        "id": 1,
+                        "nome": "cliente 1",
+                        "cpf": "000.000.000-00",
+                        "dataNascimento": "1999-12-31"
+                      },
+                      {
+                        "id": 2,
+                        "nome": "cliente 2",
+                        "cpf": "000.000.001-00",
+                        "dataNascimento": "1999-12-31"
+                      },
+                      {
+                        "id": 3
+                      }
+                    ]
+                  },
+                  "rootState": {
+                    "customer": {
+                      "customers": [
+                        {
+                          "id": 1,
+                          "nome": "cliente 1",
+                          "cpf": "000.000.000-00",
+                          "dataNascimento": "1999-12-31"
+                        },
+                        {
+                          "id": 2,
+                          "nome": "cliente 2",
+                          "cpf": "000.000.001-00",
+                          "dataNascimento": "1999-12-31"
+                        },
+                        {
+                          "id": 3
+                        }
+                      ]
+                    }
+                  }
+                },
+                "id": 4
+              }
+            ]
+          }
+        }
+      },
+      "id": 5
+    },
+    {
+      "customer": {
+        "cpf": "11498029957",
+        "dataNascimento": "1888-11-20"
+      },
+      "id": 6
+    },
+    {
+      "customer": {
+        "nome": "teste",
+        "cpf": "11498029957",
+        "dataNascimento": "1888-11-20"
+      },
+      "id": 7
+    },
+    {
+      "customer": {
+        "nome": "teste",
+        "cpf": "11498029957",
+        "dataNascimento": "1999-11-20"
+      },
+      "id": 8
+    },
+    {
+      "nome": "teste",
+      "cpf": "11498029957",
+      "dataNascimento": "1888-11-20",
+      "id": 9
+    },
+    {
+      "nome": "testedsad",
+      "cpf": "11498029957",
+      "dataNascimento": "1999-11-20",
+      "id": 10
+    },
+    {
+      "nome": "teste",
+      "cpf": "11498029957",
+      "dataNascimento": "1999-11-20",
+      "id": 11
+    },
+    {
+      "nome": "lucas",
+      "cpf": "11498029957",
+      "dataNascimento": "1999-11-20",
+      "id": 12
+    },
+    {
+      "nome": "testequatro",
+      "cpf": "11498029957",
+      "dataNascimento": "1888-11-20",
+      "id": 13
+    },
+    {
+      "nome": "testecinco",
+      "cpf": "11498029957",
+      "dataNascimento": "1999-11-20",
+      "id": 14
+    },
+    {
+      "nome": "testeseis",
+      "cpf": "11498029957",
+      "dataNascimento": "1999-11-20",
+      "id": 15
+    },
+    {
+      "nome": "testeseis",
+      "cpf": "11498029957",
+      "dataNascimento": "1999-11-20",
+      "id": 16
+    },
+    {
+      "nome": "testeseis",
+      "cpf": "11498029957",
+      "dataNascimento": "1888-11-20",
+      "id": 17
     }
   ],
   "produtos": [
