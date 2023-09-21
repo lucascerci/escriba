@@ -1,6 +1,7 @@
 <script>
   import CustomDataTable from '@/components/CustomDataTable.vue'
-  import CustomerCreateForm from './CustomerCreate.vue'
+  import CustomerCreate from './CustomerCreate.vue'
+  import CustomerEdit from './CustomerEdit.vue'
   import CustomerDeleteVue from './CustomerDelete.vue'
   import { computed } from "vue";
   import { useStore } from "vuex";
@@ -8,8 +9,9 @@
   export default {
     components: {
       'custom-data-table': CustomDataTable,
-      'create-customer-form': CustomerCreateForm,
-      'delete-customer': CustomerDeleteVue
+      'create-customer': CustomerCreate,
+      'delete-customer': CustomerDeleteVue,
+      'edit-customer': CustomerEdit
     },
     data () {
       return {
@@ -28,6 +30,7 @@
         ],
         createDialog: false,
         deleteDialog: false,
+        editDialog: false,
         selectedItem: null,
       }
     },
@@ -44,6 +47,15 @@
       },
       closeDeleteModal () {
         this.deleteDialog = false
+        this.selectedItem = null
+      },
+      openEditModal (item) {
+        console.log('inside openEditModal', item)
+        this.selectedItem = item
+        this.editDialog = true
+      },
+      closeEditModal () {
+        this.editDialog = false
         this.selectedItem = null
       },
     },
@@ -70,12 +82,13 @@
             :items="customers" 
             :itemsPerPage="itemsPerPage" 
             @create-item="openCreateModal" 
-            @edit-item="openCreateModal" 
+            @edit-item="openEditModal" 
             @delete-item="openDeleteModal"
           />
         </v-col>
       </v-row>
     </v-responsive>
+    <!-- create -->
       <v-dialog
         v-model="createDialog"
         width="auto"
@@ -84,9 +97,22 @@
           <v-card-title class="text-center">
             Cadastrar Cliente
           </v-card-title>
-          <create-customer-form @close-create-modal="closeCreateModal" />
+          <create-customer @close-create-modal="closeCreateModal" />
         </v-card>
       </v-dialog>
+      <!-- edit -->
+      <v-dialog
+        v-model="editDialog"
+        width="auto"
+      >
+        <v-card>
+          <v-card-title class="text-center">
+            Editar Cliente
+          </v-card-title>
+          <edit-customer :customerID="selectedItem" @close-edit-modal="closeEditModal" />
+        </v-card>
+      </v-dialog>
+      <!-- delete -->
       <v-dialog
         v-model="deleteDialog"
         width="auto"

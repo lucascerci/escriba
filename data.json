@@ -31,18 +31,6 @@
       "id": 13
     },
     {
-      "nome": "testecinco",
-      "cpf": "11498029957",
-      "dataNascimento": "1999-11-20",
-      "id": 14
-    },
-    {
-      "nome": "testeseis",
-      "cpf": "11498029957",
-      "dataNascimento": "1888-11-20",
-      "id": 17
-    },
-    {
       "nome": "testeluk",
       "cpf": "11498029957",
       "dataNascimento": "1999-11-20",
@@ -53,6 +41,18 @@
       "cpf": "11498029957",
       "dataNascimento": "1999-11-20",
       "id": 19
+    },
+    {
+      "nome": "Lucas Pacheco Fernandes",
+      "cpf": "11498029957",
+      "dataNascimento": "1111-11-11",
+      "id": 21
+    },
+    {
+      "nome": "teste",
+      "cpf": "11498029957",
+      "dataNascimento": "3232-02-12",
+      "id": 22
     }
   ],
   "produtos": [

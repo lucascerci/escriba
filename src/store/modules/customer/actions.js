@@ -27,4 +27,22 @@ export const actions = {
           console.error("Error deleting customer", error);
         }
     },
+    async getCustomer(_context, id) {
+      console.log('inside get customer', id)
+      try {
+          const response = await axios.get("http://localhost:3000/pessoas/" + id);
+          return response
+        } catch (error) {
+          console.error("Erro getting customer:", error);
+        }
+    },
+    async editCustomer({ dispatch }, customer) {
+      try {
+          const response = await axios.put("http://localhost:3000/pessoas", customer);
+          dispatch("fetchCustomers");
+          return response
+        } catch (error) {
+          console.error("Error editing customer", error);
+        }
+    },
 }

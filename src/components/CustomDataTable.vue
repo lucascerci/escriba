@@ -19,7 +19,7 @@
         this.$emit('delete-item', item.value)
       },
       editItem (item) {
-        this.$emit('edit-item', item)
+        this.$emit('edit-item', item.value)
       }
   },
   }
