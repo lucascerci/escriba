@@ -1,12 +1,13 @@
 import axios from "axios";
 
 export const actions = {
-    async fetchCustomers({ commit }) {
+    async fetchCustomers({ commit, dispatch }) {
         try {
             const response = await axios.get("http://localhost:3000/pessoas");
             commit("setCustomersData", response.data);
           } catch (error) {
-            console.error("Error fetching customers:", error);
+            const errorFeedback = {message: 'Não foi possivel buscar os clientes.', type: 'error'}
+            dispatch('notification/showSnackbar', errorFeedback, {root: true});
           }
     },
     async createCustomer({ dispatch }, customer) {
@@ -15,7 +16,8 @@ export const actions = {
           dispatch("fetchCustomers");
           return response
         } catch (error) {
-          console.error("Error creating customer", error);
+          const errorFeedback = {message: 'Não foi possivel criar um cliente.', type: 'error'}
+          dispatch('notification/showSnackbar', errorFeedback, {root: true});
         }
     },
     async deleteCustomer({ dispatch }, customerId) {
@@ -24,15 +26,17 @@ export const actions = {
           dispatch("fetchCustomers");
           return response
         } catch (error) {
-          console.error("Error deleting customer", error);
+          const errorFeedback = {message: 'Não foi possivel deletar um cliente.', type: 'error'}
+          dispatch('notification/showSnackbar', errorFeedback, {root: true});
         }
     },
-    async getCustomer(_context, id) {
+    async getCustomer({ dispatch }, id) {
       try {
           const response = await axios.get("http://localhost:3000/pessoas/" + id);
           return response
         } catch (error) {
-          console.error("Erro getting customer:", error);
+          const errorFeedback = {message: 'Não foi encontrado um cliente com essa ID.', type: 'error'}
+          dispatch('notification/showSnackbar', errorFeedback, {root: true});
         }
     },
     async editCustomer({ dispatch }, customer) {
@@ -41,7 +45,8 @@ export const actions = {
           dispatch("fetchCustomers");
           return response
         } catch (error) {
-          console.error("Error editing customer", error);
+          const errorFeedback = {message: 'Não foi possivel editar esse cliente.', type: 'error'}
+          dispatch('notification/showSnackbar', errorFeedback, {root: true});
         }
     },
 }
