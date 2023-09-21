@@ -23,10 +23,10 @@
             sortable: false,
             title: 'ID',
           },
-          { title: 'Nome', key: 'nome' },
-          { title: 'Documento', key: 'cpf' },
-          { title: 'Data de Nascimento', key: 'dataNascimento' },
-          { title: '', key: 'actionss' },
+          { align: 'center', title: 'Nome', key: 'nome', sortable: false, },
+          { align: 'center', title: 'Documento', key: 'cpf', sortable: false, },
+          { align: 'center', title: 'Data de Nascimento', key: 'dataNascimento', sortable: false, },
+          { title: '', key: 'actionss', sortable: false, },
         ],
         createDialog: false,
         deleteDialog: false,
@@ -71,7 +71,7 @@
 </script>
 
 <template>
-  <v-container>
+  <v-container class="elevation-1 mt-4">
     <v-responsive class="align-center text-center fill-height">
       <v-row class="customers">
         <v-col cols="12">
@@ -80,6 +80,7 @@
             :headers="headers" 
             :items="customers" 
             :itemsPerPage="itemsPerPage" 
+            :hasCreate="true"
             @create-item="openCreateModal" 
             @edit-item="openEditModal" 
             @delete-item="openDeleteModal"
@@ -92,7 +93,7 @@
         v-model="createDialog"
         width="auto"
       >
-        <v-card>
+        <v-card class="px-5 pt-5">
           <v-card-title class="text-center">
             Cadastrar Cliente
           </v-card-title>
@@ -104,7 +105,7 @@
         v-model="editDialog"
         width="auto"
       >
-        <v-card>
+        <v-card class="px-5 pt-5">
           <v-card-title class="text-center">
             Editar Cliente
           </v-card-title>

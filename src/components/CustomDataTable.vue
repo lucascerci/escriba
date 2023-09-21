@@ -1,6 +1,10 @@
 <script>
+  import actionButtons from '@/components/ActionButton.vue'
   export default {
-    props: ['headers', 'items', 'itemsPerPage', 'title'],
+    components: {
+      'action-buttons': actionButtons,
+    },
+    props: ['headers', 'items', 'itemsPerPage', 'title', 'hasCreate'],
     data () {
         return {
           page: 1,
@@ -16,10 +20,28 @@
         this.$emit('create-item')
       },
       deleteItem (item) {
-        this.$emit('delete-item', item.value)
+        this.$emit('delete-item', item)
       },
       editItem (item) {
-        this.$emit('edit-item', item.value)
+        this.$emit('edit-item', item)
+      },
+      formatDate(inputDate) {
+        const parsedDate = new Date(inputDate);
+        if (isNaN(parsedDate)) {
+          return "";
+        }
+        const day = parsedDate.getDate();
+        const month = parsedDate.getMonth() + 1;
+        const year = parsedDate.getFullYear();
+        const formattedDate = `${day}/${month}/${year}`;
+        return formattedDate;
+      },
+      formatCPF(cpf) {
+        cpf = cpf.replace(/\D/g, '');
+        if (cpf.length !== 11) {
+          return 'Invalid CPF';
+        }
+        return `${cpf.slice(0, 3)}.${cpf.slice(3, 6)}.${cpf.slice(6, 9)}-${cpf.slice(9)}`;
       }
   },
   }
@@ -27,16 +49,17 @@
 
 <template>
   <v-data-table
-      v-model:page="page"
+      :page="page"
       :headers="headers"
       :items="items"
+      :item-key="id"
       :items-per-page="itemsPerPage"
-      hide-default-footer
-      class="elevation-1 full-width"
+      class="elevation-1"
     >
     <template v-slot:top>
       <v-toolbar
         flat
+        class="rounded-lg"
       >
         <v-toolbar-title>{{ title }}</v-toolbar-title>
         <v-divider
@@ -45,9 +68,9 @@
           vertical
         ></v-divider>
         <v-btn
+              v-if="hasCreate"
               color="primary"
               dark
-              class="mb-2"
               @click="createItem"
             >
               Novo
@@ -55,32 +78,15 @@
       </v-toolbar>
     </template>
     <template v-slot:item.actionss="{ item }">
-      <div class="d-flex flex-row">
-            <v-btn
-              class="px-1 ml-1"
-              color="primary"
-              min-width="0"
-              x-small
-              @click="editItem(item)"
-              fab
-              elevation="6"
-            >
-              <v-icon small>{{ 'mdi-pencil' }}</v-icon>
-            </v-btn>
-            <v-btn
-              class="px-1 ml-1"
-              color="red"
-              min-width="0"
-              x-small
-              @click="deleteItem(item)"
-              fab
-              elevation="6"
-            >
-              <v-icon small>{{ 'mdi-delete' }}</v-icon>
-            </v-btn>
-      </div>
+      <action-buttons :item="item" @edit-item="editItem" @delete-item="deleteItem" />
     </template>
-      <template v-slot:bottom>
+    <template v-slot:item.dataNascimento="{ item }">
+      {{ formatDate(item.columns.dataNascimento) }}
+    </template>
+    <template v-slot:item.cpf="{ item }">
+      {{ formatCPF(item.columns.cpf) }}
+    </template>
+    <template v-slot:bottom>
         <div class="text-center pt-2">
           <v-pagination
             v-model="page"

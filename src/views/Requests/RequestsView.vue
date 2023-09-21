@@ -10,16 +10,15 @@
         itemsPerPage: 5,
         headers: [
           {
-            align: 'start',
+            align: 'center',
             key: 'id',
             sortable: false,
             title: 'ID',
           },
-          { title: 'Cliente', key: 'cliente' },
-          { title: 'Data de Emissão', key: 'dataEmissao' },
-          { title: 'Valor Total', key: 'valorTotal' },
-          { title: 'Itens', key: 'itens' },
-          { title: '', key: 'actionss' },
+          { align: 'center', title: 'Cliente', key: 'cliente', sortable: false },
+          { align: 'center', title: 'Data de Emissão', key: 'dataEmissao', sortable: false },
+          { align: 'center', title: 'Valor Total', sortable: false, key: 'valorTotal' },
+          { align: 'center', title: 'Itens', sortable: false, key: 'itens' },
         ],
         requests: [
           {
@@ -60,7 +59,7 @@
 </script>
 
 <template>
-  <v-container>
+  <v-container class="elevation-1 mt-4">
     <v-responsive class="align-center text-center fill-height">
       <v-row class="customers">
         <v-col cols="12">

@@ -1,22 +1,18 @@
 <template>
   <v-app-bar elevation="1" app flat color="white">
     <v-toolbar-title>
+      Escriba Teste
     </v-toolbar-title>
-    <div>
+    <div class="mr-5">
       <v-tabs
         v-model="tab"
         bg-color="white"
     >
         <v-tab value="customers" to="/customers">Clientes</v-tab>
         <v-tab value="products" to="/products">Produtos</v-tab>
-        <v-tab value="requests" to="/requests">Pedidos</v-tab>
+        <v-tab value="requests" to="/customerRequests">Pedidos</v-tab>
     </v-tabs>
     </div>
-    <v-spacer></v-spacer>
-    <v-spacer></v-spacer>
-    <v-spacer></v-spacer>
-    <v-spacer></v-spacer>
-    <v-spacer></v-spacer>
   </v-app-bar>
 </template>
 

@@ -10,14 +10,13 @@
         itemsPerPage: 5,
         headers: [
           {
-            align: 'start',
+            align: 'center',
             key: 'id',
             sortable: false,
             title: 'ID',
           },
-          { title: 'Descrição', key: 'descricao' },
-          { title: 'Valor Unitario', key: 'valoUnitario' },
-          { title: '', key: 'actionss' },
+          { align: 'center', title: 'Descrição', key: 'descricao', sortable: false, },
+          { align: 'center', title: 'Valor Unitario', key: 'valoUnitario', sortable: false, },
         ],
         products: [
             {
@@ -42,7 +41,7 @@
 </script>
 
 <template>
-  <v-container>
+  <v-container class="elevation-1 mt-4">
     <v-responsive class="align-center text-center fill-height">
       <v-row class="customers">
         <v-col cols="12">

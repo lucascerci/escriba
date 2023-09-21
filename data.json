@@ -1,9 +1,9 @@
 {
   "pessoas": [
     {
-      "nome": "cliente 1 nome errado",
+      "nome": "cliente 1 nome erradx",
       "cpf": "11498029957",
-      "dataNascimento": "1999-12-31",
+      "dataNascimento": "1999-12-16",
       "id": 1
     },
     {
@@ -13,22 +13,10 @@
       "id": 9
     },
     {
-      "nome": "teste",
-      "cpf": "11498029957",
-      "dataNascimento": "1999-11-20",
-      "id": 11
-    },
-    {
       "nome": "lucas teste",
       "cpf": "11498029957",
       "dataNascimento": "1999-11-20",
       "id": 12
-    },
-    {
-      "nome": "teste",
-      "cpf": "11498029957",
-      "dataNascimento": "1999-11-20",
-      "id": 19
     },
     {
       "nome": "Lucas Pacheco Fernandes",
@@ -53,6 +41,18 @@
       "cpf": "11498029957",
       "dataNascimento": "1999-11-20",
       "id": 24
+    },
+    {
+      "nome": "tsadasd",
+      "cpf": "11498029957",
+      "dataNascimento": "1999-11-20",
+      "id": 25
+    },
+    {
+      "nome": "teste",
+      "cpf": "11498029957",
+      "dataNascimento": "1999-11-20",
+      "id": 27
     }
   ],
   "produtos": [

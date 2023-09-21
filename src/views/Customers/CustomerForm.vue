@@ -2,7 +2,7 @@
     <v-container>
       <v-sheet class="mx-auto">
         <v-form ref="form" fast-fail @submit.prevent @submit="submitForm">
-          <v-row>
+          <v-row class="px-5 py-5">
             <v-col cols="12">
               <v-text-field
                 v-model="name"
