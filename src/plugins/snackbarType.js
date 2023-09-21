@@ -4,7 +4,7 @@ export function SnackbarAddOptions(type) {
       case "error":
         return {
           color: "error",
-          icon: "error",
+          icon: "mdi-alert",
           mode: "multi-line",
           position: "top",
           timeout: 7500,
@@ -24,7 +24,7 @@ export function SnackbarAddOptions(type) {
       case "success":
         return {
           color: "success",
-          icon: "check_circle",
+          icon: "mdi-check",
           mode: "multi-line",
           position: "top",
           timeout: 7500,

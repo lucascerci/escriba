@@ -20,13 +20,12 @@
       async edit (customer) {
         const response = await this.editCustomer(customer)
           if (response?.status === 200) {
-            setTimeout(() => {
-              this.closeEditModal()
-            }, 1000);
+            const userFeedback = {message: 'Cliente foi editado com sucesso.', type: 'success'}
+            this.showMessage(userFeedback)
+            this.closeEditModal()
           }
       },
       closeEditModal () {
-        this.alertCreate = false
         this.$emit('close-edit-modal')
       }
     },
@@ -38,6 +37,11 @@
           const response = store.dispatch("customer/editCustomer", customer)
           return response
       }
+
+      const showMessage = async (userFeedback) => {
+          const response = store.dispatch("notification/showSnackbar", userFeedback)
+          return response
+      }
       
       onMounted(async () => {
         const response = await store.dispatch('customer/getCustomer', props.customerID);
@@ -47,6 +51,7 @@
       return {
         editCustomer,
         foundedCustomerByID,
+        showMessage
       };
     },
   }

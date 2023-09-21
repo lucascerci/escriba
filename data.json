@@ -1,7 +1,7 @@
 {
   "pessoas": [
     {
-      "nome": "cliente 1 nome correto",
+      "nome": "cliente 1 nome errado",
       "cpf": "11498029957",
       "dataNascimento": "1999-12-31",
       "id": 1
@@ -23,12 +23,6 @@
       "cpf": "11498029957",
       "dataNascimento": "1999-11-20",
       "id": 12
-    },
-    {
-      "nome": "testequatro",
-      "cpf": "11498029957",
-      "dataNascimento": "1999-11-20",
-      "id": 13
     },
     {
       "nome": "teste",
@@ -53,6 +47,12 @@
       "cpf": "11498029957",
       "dataNascimento": "1999-11-20",
       "id": 23
+    },
+    {
+      "nome": "testecadastro",
+      "cpf": "11498029957",
+      "dataNascimento": "1999-11-20",
+      "id": 24
     }
   ],
   "produtos": [

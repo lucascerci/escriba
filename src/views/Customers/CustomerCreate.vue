@@ -15,14 +15,12 @@
         const response = await this.createCustomer(customer)
           this.loading = false
           if (response?.status === 201) {
-            this.alertCreate = true
-            setTimeout(() => {
-              this.closeCreateModal()
-            }, 1000);
+            const userFeedback = {message: 'Cliente cadastrado com sucesso.', type: 'success'}
+            this.showMessage(userFeedback)
+            this.closeCreateModal()
           }
       },
       closeCreateModal () {
-        this.alertCreate = false
         this.$emit('close-create-modal')
       }
     },
@@ -32,8 +30,13 @@
           const response = store.dispatch("customer/createCustomer", customer)
           return response
       }
+      const showMessage = async (userFeedback) => {
+          const response = store.dispatch("notification/showSnackbar", userFeedback)
+          return response
+      }
       return {
         createCustomer,
+        showMessage
       };
     },
   }

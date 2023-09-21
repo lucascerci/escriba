@@ -47,14 +47,6 @@
               {{customerToEditInside ? 'Editar' : 'Criar'}}
             </v-btn>
         </v-card-actions>
-        <div v-if="alertAction">
-          <v-alert
-            type="success"
-            variant="outlined"
-          >
-              {{customerToEditInside ? 'Cliente editado com sucesso' : 'Cliente criado com sucesso'}}
-          </v-alert>
-        </div>
         </v-form>
       </v-sheet>
     </v-container>
@@ -83,7 +75,6 @@
         },
       ],
       birthDate: '',
-      alertAction: false,
       loading: false,
       customerToEditInside: null,
     }),
@@ -105,7 +96,6 @@
         }
       },
       closeModal () {
-        this.alertAction = false
         this.$emit('close-modal')
       }
     },
