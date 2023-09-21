@@ -50,7 +50,6 @@
         this.selectedItem = null
       },
       openEditModal (item) {
-        console.log('inside openEditModal', item)
         this.selectedItem = item
         this.editDialog = true
       },
@@ -109,7 +108,9 @@
           <v-card-title class="text-center">
             Editar Cliente
           </v-card-title>
-          <edit-customer :customerID="selectedItem" @close-edit-modal="closeEditModal" />
+          <Suspense>
+            <edit-customer :customerID="selectedItem" @close-edit-modal="closeEditModal" />
+          </Suspense>
         </v-card>
       </v-dialog>
       <!-- delete -->

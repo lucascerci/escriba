@@ -28,7 +28,6 @@ export const actions = {
         }
     },
     async getCustomer(_context, id) {
-      console.log('inside get customer', id)
       try {
           const response = await axios.get("http://localhost:3000/pessoas/" + id);
           return response
@@ -38,7 +37,7 @@ export const actions = {
     },
     async editCustomer({ dispatch }, customer) {
       try {
-          const response = await axios.put("http://localhost:3000/pessoas", customer);
+          const response = await axios.put("http://localhost:3000/pessoas/" + customer.id, customer);
           dispatch("fetchCustomers");
           return response
         } catch (error) {

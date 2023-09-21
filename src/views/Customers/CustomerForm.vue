@@ -1,7 +1,7 @@
 <template>
     <v-container>
       <v-sheet class="mx-auto">
-        <v-form ref="form" fast-fail @submit.prevent @submit="create">
+        <v-form ref="form" fast-fail @submit.prevent @submit="submitForm">
           <v-row>
             <v-col cols="12">
               <v-text-field
@@ -34,7 +34,7 @@
             <v-btn
               color="blue-darken-1"
               variant="text"
-              @click="closeCreateModal"
+              @click="closeModal"
             >
               Fechar
             </v-btn>
@@ -44,15 +44,15 @@
               variant="text"
               :loading="loading"
             >
-              Criar
+              {{customerToEditInside ? 'Editar' : 'Criar'}}
             </v-btn>
         </v-card-actions>
-        <div v-if="alertCreate">
+        <div v-if="alertAction">
           <v-alert
             type="success"
             variant="outlined"
           >
-              Cliente criado com sucesso.
+              {{customerToEditInside ? 'Cliente editado com sucesso' : 'Cliente criado com sucesso'}}
           </v-alert>
         </div>
         </v-form>
@@ -83,11 +83,12 @@
         },
       ],
       birthDate: '',
-      alertCreate: false,
+      alertAction: false,
       loading: false,
+      customerToEditInside: null,
     }),
     methods: {
-      async create () {
+      async submitForm () {
         const { valid } = await this.$refs.form.validate()
         if (valid) {
           this.loading = true
@@ -96,25 +97,27 @@
             cpf: this.cpf,
             dataNascimento: this.birthDate
           }
-          if (this.customerToEdit) {
-            customer.id = this.customerToEdit.id
+          if (this.customerToEditInside) {
+            customer.id = this.customerToEditInside.id
           }
-          // CHAMAR COMPONENTE PAI[
+
           this.$emit('submit-form', customer)
         }
       },
-      closeCreateModal () {
-        this.alertCreate = false
-        this.$emit('close-create-modal')
+      closeModal () {
+        this.alertAction = false
+        this.$emit('close-modal')
       }
     },
-    setup(props) {
-      console.log('inside setup of customer form', props)
-        if (props.customerToEdit) {
-            this.name = this.customerToEdit.nome
-            this.cpf = this.customerToEdit.cpf
-            this.birthDate = this.customerToEdit.dataNascimento
+    watch: {
+      customerToEdit (newCustomerToEdit) {
+        if (newCustomerToEdit) {
+          this.customerToEditInside = newCustomerToEdit
+          this.name = newCustomerToEdit.nome
+          this.cpf = newCustomerToEdit.cpf
+          this.birthDate = newCustomerToEdit.dataNascimento
         }
-    }
+      }
+    },
   }
 </script>

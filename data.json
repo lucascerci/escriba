@@ -1,13 +1,13 @@
 {
   "pessoas": [
     {
-      "id": 1,
-      "nome": "cliente 1",
-      "cpf": "000.000.000-00",
-      "dataNascimento": "1999-12-31"
+      "nome": "cliente 1 nome correto",
+      "cpf": "11498029957",
+      "dataNascimento": "1999-12-31",
+      "id": 1
     },
     {
-      "nome": "teste",
+      "nome": "teste 2",
       "cpf": "11498029957",
       "dataNascimento": "1888-11-20",
       "id": 9
@@ -19,7 +19,7 @@
       "id": 11
     },
     {
-      "nome": "lucas",
+      "nome": "lucas teste",
       "cpf": "11498029957",
       "dataNascimento": "1999-11-20",
       "id": 12
@@ -27,14 +27,8 @@
     {
       "nome": "testequatro",
       "cpf": "11498029957",
-      "dataNascimento": "1888-11-20",
-      "id": 13
-    },
-    {
-      "nome": "testeluk",
-      "cpf": "11498029957",
       "dataNascimento": "1999-11-20",
-      "id": 18
+      "id": 13
     },
     {
       "nome": "teste",
@@ -53,6 +47,12 @@
       "cpf": "11498029957",
       "dataNascimento": "3232-02-12",
       "id": 22
+    },
+    {
+      "nome": "criar novo teste",
+      "cpf": "11498029957",
+      "dataNascimento": "1999-11-20",
+      "id": 23
     }
   ],
   "produtos": [

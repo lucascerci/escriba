@@ -1,5 +1,5 @@
 <template>
-    <customer-form @submit-form="create" @close-create-modal="closeCreateModal" />
+    <customer-form @submit-form="create" @close-modal="closeCreateModal" />
 </template>
 
 <script>
