@@ -99,7 +99,7 @@
 
           const response = await this.createCustomer(customer)
           this.loading = false
-          if (response.status === 201) {
+          if (response?.status === 201) {
             this.alertCreate = true
             setTimeout(() => {
               this.closeCreateModal()

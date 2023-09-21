@@ -3,7 +3,7 @@
     props: ['headers', 'items', 'itemsPerPage', 'title'],
     data () {
         return {
-            page: 1,
+          page: 1,
         }
     },
     computed: {
@@ -12,9 +12,15 @@
       },
     },
     methods: {
-      openCreateModal() {
-        this.$emit('open-create-modal')
+      createItem() {
+        this.$emit('create-item')
       },
+      deleteItem (item) {
+        this.$emit('delete-item', item.value)
+      },
+      editItem (item) {
+        this.$emit('edit-item', item)
+      }
   },
   }
 </script>
@@ -42,7 +48,7 @@
               color="primary"
               dark
               class="mb-2"
-              @click="openCreateModal"
+              @click="createItem"
             >
               Novo
         </v-btn>
@@ -50,24 +56,29 @@
     </template>
     <template v-slot:item.actionss="{ item }">
       <div class="d-flex flex-row">
-              <v-tooltip top>
-                <template v-slot:activator="{ on }">
-                  <div v-on="on">
-                    <v-btn
-                      class="px-1 ml-1"
-                      color="primary"
-                      min-width="0"
-                      x-small
-                      fab
-                      elevation="6"
-                    >
-                      <v-icon small>mdi-pencil</v-icon>
-                    </v-btn>
-                  </div>
-                </template>
-                <span v-text="'editar'" />
-              </v-tooltip>
-        </div>
+            <v-btn
+              class="px-1 ml-1"
+              color="primary"
+              min-width="0"
+              x-small
+              @click="editItem(item)"
+              fab
+              elevation="6"
+            >
+              <v-icon small>{{ 'mdi-pencil' }}</v-icon>
+            </v-btn>
+            <v-btn
+              class="px-1 ml-1"
+              color="red"
+              min-width="0"
+              x-small
+              @click="deleteItem(item)"
+              fab
+              elevation="6"
+            >
+              <v-icon small>{{ 'mdi-delete' }}</v-icon>
+            </v-btn>
+      </div>
     </template>
       <template v-slot:bottom>
         <div class="text-center pt-2">
