@@ -10,6 +10,7 @@ escriba-front-test
     │   ├── CustomDataTable.vue
     ├── plugins
     │   └── index.js
+    │   └── utils.js
     └── store
     │   └── index.js
     │   └── modules
@@ -27,6 +28,7 @@ escriba-front-test
 Estrutura do projeto:
 - Dentro de componentes estão os componentes dinamicos para serem reutilizados em diferentes views.
 - Em plugins estão centralizadas as bibliotecas para tornar a manutenção das mesmas e a adição de novas simples.
+- Em plugins temos também o arquivo utils.js onde contem algumas funções que podem ser reutilizadas ao longo do projeto, exemplo: validateCPF.
 - Store com vuex foi feita de uma forma escalavel onde se pode adicionar novos modulos de uma maneira facil.
 - Contiuando em Store foi criado o arquivo api.js que centraliza a url em um só lugar vindo .env, para que se precisar alterar depois seja apenas ali e não dentro de  todos os modulos, facilitando assim a manutenção do projeto.
 - Views utilizei o exemplo de Customers, que utiliza a API 'Pessoas'. Fiz uma estrutura onde tanto para o Edit quanto para o Create é utilizado o mesmo form, sendo assim menos linha de codigo e utilizando a ideia da componetização ao maximo.

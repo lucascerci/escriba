@@ -1,5 +1,6 @@
 <script>
 import { useStore } from "vuex";
+import { validateCPF } from '@/plugins/utils'
 
 export default {
     data() {
@@ -10,10 +11,11 @@ export default {
     },
     methods: {
         searchByDocument() {
-            if (this.document.length > 0) {
+            if (validateCPF(this.document)) {
                 this.getCustomers({cpf: this.document})
             } else {
-                this.getCustomers()
+                const userFeedback = {message: 'Você precisa digiar um cpf valido para buscar.', type: 'error'}
+                this.showMessage(userFeedback)
             }
         }
     },
@@ -22,9 +24,14 @@ export default {
       const getCustomers = (document) => {
         store.dispatch("customer/fetchCustomers", document)
       }
+      const showMessage = async (userFeedback) => {
+          const response = store.dispatch("notification/showSnackbar", userFeedback)
+          return response
+      }
 
       return {
-        getCustomers
+        getCustomers,
+        showMessage
       };
     },
 }
@@ -38,7 +45,7 @@ export default {
                 density="compact"
                 variant="solo"
                 v-model="document"
-                label="Documento"
+                label="Buscar por Documento"
                 append-inner-icon="mdi-magnify"
                 single-line
                 hide-details
