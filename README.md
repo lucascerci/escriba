@@ -1,29 +1,32 @@
 # Escriba Test
 
-Tecnologias usadas: Vuetify, Vue Router, Vuex e Axios.
+Tecnologias usadas: Vue3, Vuetify, Vue Router, Vuex e Axios.
 
 ```
 escriba-front-test
 │
 ├── src
-    ├── components
-    │   ├── CustomDataTable.vue
-    ├── plugins
-    │   └── index.js
-    │   └── utils.js
-    └── store
-    │   └── index.js
-    │   └── modules
-    │   │    └── customer
-    │   │    └── products
-    │   └── api.js
-    └── views
-    │   └── Customers
-    │     └── CustomersView.vue
-    │     └── CustomersCreate.vue
-    │     └── CustomersEdit.vue
-    │     └── CustomersForm.vue
-    │     └── Products
+│   ├── components
+│   │   ├── CustomDataTable.vue
+│   ├── plugins
+│   │   └── index.js
+│   │   └── utils.js
+│   └── store
+│   │   └── index.js
+│   │   └── modules
+│   │   │    └── customer
+│   │   │    └── products
+│   │   └── api.js
+│   └── views
+│       └── Customers
+│         └── CustomersView.vue
+│         └── CustomersCreate.vue
+│         └── CustomersEdit.vue
+│         └── CustomersForm.vue
+│         └── Products
+└── tests
+    └── spec
+        └── customDataTable.spec.js
 ```
 Estrutura do projeto:
 - Dentro de componentes estão os componentes dinamicos para serem reutilizados em diferentes views.
@@ -32,8 +35,9 @@ Estrutura do projeto:
 - Store com vuex foi feita de uma forma escalavel onde se pode adicionar novos modulos de uma maneira facil.
 - Contiuando em Store foi criado o arquivo api.js que centraliza a url em um só lugar vindo .env, para que se precisar alterar depois seja apenas ali e não dentro de  todos os modulos, facilitando assim a manutenção do projeto.
 - Views utilizei o exemplo de Customers, que utiliza a API 'Pessoas'. Fiz uma estrutura onde tanto para o Edit quanto para o Create é utilizado o mesmo form, sendo assim menos linha de codigo e utilizando a ideia da componetização ao maximo.
+- Dentro de tests na pasta raiz do projeto foi criado um simples teste como exemplo, utilizando a biblioteca vitest.
 
-## Installing 
+## Instalação
 ```
 # yarn
 yarn
@@ -42,7 +46,7 @@ yarn
 npm install
 ```
 
-## Running the development 
+## Rodando em desenvolvimento
 
 ```
 # yarn
@@ -52,17 +56,7 @@ yarn dev
 npm run dev
 ```
 
-### Compiles and hot-reloads for development
-
-```
-# yarn
-yarn dev
-
-# npm
-npm run dev
-```
-
-### Compiles and minifies for production
+### Compila e minimiza para produção
 
 ```
 # yarn
@@ -72,14 +66,14 @@ yarn build
 npm run build
 ```
 
-### Lints and fixes files
+### Para executar testes
 
 ```
 # yarn
-yarn lint
+yarn test
 
 # npm
-npm run lint
+npm run test
 ```
 
 ### Customize configuration
