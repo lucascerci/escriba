@@ -3,6 +3,7 @@
   import CustomerCreate from './CustomerCreate.vue'
   import CustomerEdit from './CustomerEdit.vue'
   import CustomerDeleteVue from './CustomerDelete.vue'
+  import CustomerFilters from './CustomerFilters.vue'
   import { computed } from "vue";
   import { useStore } from "vuex";
 
@@ -11,7 +12,8 @@
       'custom-data-table': CustomDataTable,
       'create-customer': CustomerCreate,
       'delete-customer': CustomerDeleteVue,
-      'edit-customer': CustomerEdit
+      'edit-customer': CustomerEdit,
+      'customer-filters': CustomerFilters,
     },
     data () {
       return {
@@ -74,6 +76,29 @@
   <v-container class="elevation-1 mt-4">
     <v-responsive class="align-center text-center fill-height">
       <v-row class="customers">
+        <v-col cols="12">
+          <v-toolbar
+            flat
+            class="rounded-lg"
+          >
+            <v-toolbar-title>Clientes</v-toolbar-title>
+            <v-divider
+              class="mx-4"
+              inset
+              vertical
+            ></v-divider>
+            <v-btn
+                color="primary"
+                dark
+                @click="openCreateModal"
+              >
+                Novo
+            </v-btn>
+          </v-toolbar>
+        </v-col>
+        <v-col cols="12">
+          <customer-filters />
+        </v-col>
         <v-col cols="12">
           <custom-data-table 
             title="Clientes" 

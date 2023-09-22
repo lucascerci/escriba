@@ -49,27 +49,6 @@
       :items-per-page="itemsPerPage"
       class="elevation-1"
     >
-    <template v-slot:top>
-      <v-toolbar
-        flat
-        class="rounded-lg"
-      >
-        <v-toolbar-title>{{ title }}</v-toolbar-title>
-        <v-divider
-          class="mx-4"
-          inset
-          vertical
-        ></v-divider>
-        <v-btn
-              v-if="hasCreate"
-              color="primary"
-              dark
-              @click="createItem"
-            >
-              Novo
-        </v-btn>
-      </v-toolbar>
-    </template>
     <template v-slot:item.actionss="{ item }">
       <action-buttons :item="item" @edit-item="editItem" @delete-item="deleteItem" />
     </template>

@@ -55,7 +55,20 @@
     <v-responsive class="align-center text-center fill-height">
       <v-row class="customers">
         <v-col cols="12">
-          <custom-data-table title="Pedidos" :headers="headers" :items="requests" :itemsPerPage="itemsPerPage" @see-items="openItemsModal" />
+          <v-toolbar
+            flat
+            class="rounded-lg"
+          >
+            <v-toolbar-title>Pedidos</v-toolbar-title>
+            <v-divider
+              class="mx-4"
+              inset
+              vertical
+            ></v-divider>
+          </v-toolbar>
+        </v-col>
+        <v-col cols="12">
+          <custom-data-table :headers="headers" :items="requests" :itemsPerPage="itemsPerPage" @see-items="openItemsModal" />
         </v-col>
       </v-row>
     </v-responsive>

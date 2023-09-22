@@ -23,6 +23,12 @@
       "cpf": "11498029957",
       "dataNascimento": "1999-11-20",
       "id": 25
+    },
+    {
+      "nome": "teste",
+      "cpf": "11498029957",
+      "dataNascimento": "1999-11-20",
+      "id": 26
     }
   ],
   "produtos": [

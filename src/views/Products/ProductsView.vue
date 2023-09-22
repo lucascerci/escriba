@@ -39,7 +39,18 @@
     <v-responsive class="align-center text-center fill-height">
       <v-row class="customers">
         <v-col cols="12">
-          <custom-data-table title="Produtos" :headers="headers" :items="products" :itemsPerPage="itemsPerPage" />
+          <v-toolbar
+            flat
+            class="rounded-lg"
+          >
+            <v-toolbar-title>Produtos</v-toolbar-title>
+            <v-divider
+              class="mx-4"
+              inset
+              vertical
+            ></v-divider>
+          </v-toolbar>
+          <custom-data-table :headers="headers" :items="products" :itemsPerPage="itemsPerPage" />
         </v-col>
       </v-row>
     </v-responsive>
