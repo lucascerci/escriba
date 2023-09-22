@@ -6,7 +6,7 @@
     components: {
       'action-buttons': actionButtons,
     },
-    props: ['headers', 'items', 'itemsPerPage', 'title', 'hasCreate', 'requestLoading'],
+    props: ['headers', 'items', 'itemsPerPage', 'hasCreate', 'requestLoading'],
     data () {
         return {
           page: 1,

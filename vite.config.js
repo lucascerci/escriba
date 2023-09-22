@@ -49,4 +49,11 @@ export default defineConfig({
   server: {
     port: 3001,
   },
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    deps: {
+      inline: ['vuetify'],
+    },
+  },
 })
