@@ -4,7 +4,7 @@ export const actions = {
     async fetchCustomers({ commit, dispatch }, filters) {
         commit("requestInit");
         try {
-            const response = await mainApi.get("pessoas", { params: filters });
+            const response = await mainApi.get("pessoas", {params: filters});
             commit("setCustomersData", response.data);
             commit("requestFinished");
           } catch (error) {

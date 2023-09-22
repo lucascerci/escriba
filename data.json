@@ -16,12 +16,6 @@
       "nome": "teste",
       "cpf": "11498029957",
       "dataNascimento": "1999-11-20",
-      "id": 24
-    },
-    {
-      "nome": "teste",
-      "cpf": "11498029957",
-      "dataNascimento": "1999-11-20",
       "id": 25
     },
     {
@@ -29,6 +23,12 @@
       "cpf": "11498029957",
       "dataNascimento": "1999-11-20",
       "id": 26
+    },
+    {
+      "nome": "testex",
+      "cpf": "91755335024",
+      "dataNascimento": "1999-11-20",
+      "id": 27
     }
   ],
   "produtos": [

@@ -94,7 +94,7 @@
                 dark
                 @click="openCreateModal"
               >
-                Novo
+                Cadastrar
             </v-btn>
           </v-toolbar>
         </v-col>
