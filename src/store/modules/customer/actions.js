@@ -1,10 +1,10 @@
-import axios from "axios";
+import { mainApi } from "@/store/api";
 
 export const actions = {
     async fetchCustomers({ commit, dispatch }, filters) {
         commit("requestInit");
         try {
-            const response = await axios.get("http://localhost:3000/pessoas", { params: filters });
+            const response = await mainApi.get("pessoas", { params: filters });
             commit("setCustomersData", response.data);
             commit("requestFinished");
           } catch (error) {
@@ -15,7 +15,7 @@ export const actions = {
     },
     async createCustomer({ dispatch }, customer) {
       try {
-          const response = await axios.post("http://localhost:3000/pessoas", customer);
+          const response = await mainApi.post("pessoas", customer);
           dispatch("fetchCustomers");
           return response
         } catch (error) {
@@ -25,7 +25,7 @@ export const actions = {
     },
     async deleteCustomer({ dispatch }, customerId) {
       try {
-          const response = await axios.delete("http://localhost:3000/pessoas/" + customerId);
+          const response = await mainApi.delete("pessoas/" + customerId);
           dispatch("fetchCustomers");
           return response
         } catch (error) {
@@ -35,7 +35,7 @@ export const actions = {
     },
     async getCustomer({ dispatch }, id) {
       try {
-          const response = await axios.get("http://localhost:3000/pessoas/" + id);
+          const response = await mainApi.get("pessoas/" + id);
           return response
         } catch (error) {
           const errorFeedback = {message: 'Não foi encontrado um cliente com essa ID.', type: 'error'}
@@ -44,7 +44,7 @@ export const actions = {
     },
     async editCustomer({ dispatch }, customer) {
       try {
-          const response = await axios.put("http://localhost:3000/pessoas/" + customer.id, customer);
+          const response = await mainApi.put("pessoas/" + customer.id, customer);
           dispatch("fetchCustomers");
           return response
         } catch (error) {
