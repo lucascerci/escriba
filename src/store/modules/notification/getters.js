@@ -6,7 +6,7 @@ export const getters = {
         return state.showSnackbar;
     },
     getSnackbarType(state) {
-        return state.showSnackbar;
+        return state.snackbarType;
     },
 }
   

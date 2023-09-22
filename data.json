@@ -1,22 +1,10 @@
 {
   "pessoas": [
     {
-      "nome": "cliente 1 nome erradx",
-      "cpf": "11498029957",
-      "dataNascimento": "1999-12-16",
-      "id": 1
-    },
-    {
       "nome": "teste 2",
       "cpf": "11498029957",
       "dataNascimento": "1888-11-20",
       "id": 9
-    },
-    {
-      "nome": "Lucas Pacheco Fernandes",
-      "cpf": "11498029957",
-      "dataNascimento": "1111-11-11",
-      "id": 21
     },
     {
       "nome": "teste",
@@ -25,10 +13,16 @@
       "id": 22
     },
     {
-      "nome": "criar novo teste",
+      "nome": "teste",
       "cpf": "11498029957",
       "dataNascimento": "1999-11-20",
-      "id": 23
+      "id": 24
+    },
+    {
+      "nome": "teste",
+      "cpf": "11498029957",
+      "dataNascimento": "1999-11-20",
+      "id": 25
     }
   ],
   "produtos": [

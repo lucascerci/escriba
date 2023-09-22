@@ -1,5 +1,5 @@
 <script>
-import { computed, watch, ref } from 'vue';
+import { computed, watch, ref, onBeforeUnmount } from 'vue';
 import { useStore } from 'vuex';
 import { SnackbarAddOptions } from '@/plugins/snackbarType'
 
@@ -25,6 +25,11 @@ export default {
 
     watch(showSnackbar, (newShowSnackbar) => {
       snackbar.value = newShowSnackbar
+      if (newShowSnackbar) {
+        setTimeout(() => {
+          setFalseBeforeLeave()
+        }, 7000);
+      }
     });
 
     watch(snackbarMessage, (newSnackbarMessage) => {
@@ -35,7 +40,11 @@ export default {
       snackbarOptions.value = SnackbarAddOptions(newSnackbarType)
     });
 
-    return { message, snackbar, snackbarOptions };
+    const setFalseBeforeLeave = () => {
+      store.commit('notification/setShowSnackbar', false)
+    } 
+
+    return { message, snackbar, snackbarOptions, setFalseBeforeLeave };
   },
 };
 </script>
@@ -43,10 +52,15 @@ export default {
 
 <template>
     <v-snackbar
-      v-model="snackbar" auto-height :color="snackbarOptions.color" :multi-line="snackbarOptions.mode === 'multi-line'" :timeout="snackbarOptions.timeout" :top="snackbarOptions.position === 'top'"
+      v-model="snackbar" 
+      auto-height 
+      :color="snackbarOptions?.color" 
+      :multi-line="snackbarOptions?.mode === 'multi-line'" 
+      :timeout="snackbarOptions?.timeout" 
+      :top="snackbarOptions?.position === 'top'"
     >
       <v-layout class="align-center pr-4 pl-6">
-        <v-icon class="pr-3" dark large>{{ snackbarOptions.icon }}</v-icon>
+        <v-icon class="pr-3" dark large>{{ snackbarOptions?.icon }}</v-icon>
         <v-layout dflex column>
           <div>{{ message }}</div>
         </v-layout>
@@ -55,7 +69,7 @@ export default {
       <template v-slot:actions>
         <v-btn
           variant="text"
-          @click="snackbar = false"
+          @click="setFalseBeforeLeave"
         >
           Fechar
         </v-btn>
