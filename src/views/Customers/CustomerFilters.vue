@@ -10,7 +10,11 @@ export default {
         }
     },
     methods: {
-        searchByDocument() {
+        cleanFilters () {
+            this.document = ''
+            this.getCustomers()
+        },
+        search () {
             if (validateCPF(this.document)) {
                 this.getCustomers({cpf: this.document})
             } else {
@@ -39,8 +43,9 @@ export default {
 
 <template>
     <v-row>
-        <v-col cols="4" class="ml-2">
+        <v-col cols="12" :lg="4" :md="4" :sm="12" :xs="12">
             <v-text-field
+                class="ml-3 mr-3"
                 :loading="loading"
                 density="compact"
                 variant="solo"
@@ -49,10 +54,37 @@ export default {
                 append-inner-icon="mdi-magnify"
                 single-line
                 hide-details
-                @keydown.enter="searchByDocument"
-                @click:append-inner="searchByDocument"
             ></v-text-field>
-        </v-col>         
+        </v-col>   
+        <v-col :lg="4" :md="4" :sm="0" :xs="0">
+        </v-col>      
+        <v-col cols="12" :lg="4" :md="4" :sm="12" :xs="12" class="d-flex justify-end">
+            <v-tooltip text="Limpar Filtros">
+                <template v-slot:activator="{ props }">
+                    <v-btn
+                        color="primary"
+                        dark
+                        v-bind="props"
+                        @click="cleanFilters"
+                    >
+                        <v-icon>mdi-filter-off</v-icon>
+                    </v-btn>
+                </template>
+            </v-tooltip>
+            <v-tooltip text="Buscar">
+                <template v-slot:activator="{ props }">
+                    <v-btn
+                        color="primary"
+                        dark
+                        v-bind="props"
+                        @click="search"
+                        class="ml-3 mr-3"
+                    >
+                        Buscar
+                    </v-btn>
+                </template>
+            </v-tooltip>
+        </v-col>   
     </v-row>
   </template>
   
