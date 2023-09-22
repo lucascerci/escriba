@@ -8,6 +8,7 @@ escriba-front-test
 ├── src
 │   ├── components
 │   │   ├── CustomDataTable.vue
+│   │   └── CustomSnackbar.vue
 │   ├── plugins
 │   │   └── index.js
 │   │   └── utils.js
@@ -29,7 +30,7 @@ escriba-front-test
         └── customDataTable.spec.js
 ```
 Estrutura do projeto:
-- Dentro de componentes estão os componentes dinamicos para serem reutilizados em diferentes views.
+- Dentro de componentes estão os componentes dinamicos para serem reutilizados em diferentes views. Ex: CustomSnackbar, um componente que aparece para dar um retorno pro usuario sempre que uma ação é feita.
 - Em plugins estão centralizadas as bibliotecas para tornar a manutenção das mesmas e a adição de novas simples.
 - Em plugins temos também o arquivo utils.js onde contem algumas funções que podem ser reutilizadas ao longo do projeto, exemplo: validateCPF.
 - Store com vuex foi feita de uma forma escalavel onde se pode adicionar novos modulos de uma maneira facil.
