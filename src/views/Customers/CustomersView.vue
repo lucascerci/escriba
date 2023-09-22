@@ -63,10 +63,12 @@
     setup() {
       const store = useStore()
       const customers = computed(() => store.getters["customer/getCustomers"])
+      const requestLoading = computed(() => store.getters["customer/getRequestLoading"])
       store.dispatch("customer/fetchCustomers")
 
       return {
         customers,
+        requestLoading
       };
     },
   }
@@ -102,6 +104,7 @@
         <v-col cols="12">
           <custom-data-table 
             title="Clientes" 
+            :requestLoading="requestLoading"
             :headers="headers" 
             :items="customers" 
             :itemsPerPage="itemsPerPage" 

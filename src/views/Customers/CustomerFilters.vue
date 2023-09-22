@@ -10,7 +10,11 @@ export default {
     },
     methods: {
         searchByDocument() {
-            this.getCustomers({cpf: this.document})
+            if (this.document.length > 0) {
+                this.getCustomers({cpf: this.document})
+            } else {
+                this.getCustomers()
+            }
         }
     },
     setup() {

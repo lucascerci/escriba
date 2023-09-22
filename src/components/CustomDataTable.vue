@@ -6,16 +6,22 @@
     components: {
       'action-buttons': actionButtons,
     },
-    props: ['headers', 'items', 'itemsPerPage', 'title', 'hasCreate'],
+    props: ['headers', 'items', 'itemsPerPage', 'title', 'hasCreate', 'requestLoading'],
     data () {
         return {
           page: 1,
+          loading: false,
         }
     },
     computed: {
       pageCount () {
         return Math.ceil(this.items.length / this.itemsPerPage)
       },
+    },
+    watch: {
+      requestLoading (newValue) {
+        this.loading = newValue
+      }
     },
     methods: {
       createItem() {
@@ -47,6 +53,7 @@
       :items="items"
       :item-key="id"
       :items-per-page="itemsPerPage"
+      :loading="loading"
       class="elevation-1"
     >
     <template v-slot:item.actionss="{ item }">
