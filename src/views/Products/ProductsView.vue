@@ -1,5 +1,7 @@
 <script>
   import CustomDataTable from '@/components/CustomDataTable.vue'
+  import { computed } from "vue"
+  import { useStore } from "vuex"
 
   export default {
     components: {
@@ -7,7 +9,7 @@
     },
     data () {
       return {
-        itemsPerPage: 5,
+        itemsPerPage: 10,
         headers: [
           {
             align: 'center',
@@ -18,24 +20,16 @@
           { align: 'center', title: 'Descrição', key: 'descricao', sortable: false, },
           { align: 'center', title: 'Valor Unitario', key: 'valoUnitario', sortable: false, },
         ],
-        products: [
-            {
-                "id": 1,
-                "descricao": "produto 1",
-                "valoUnitario": 10
-            },
-            {
-                "id": 2,
-                "descricao": "produto 2",
-                "valoUnitario": 8.88
-            },
-            {
-                "descricao": "produto 3",
-                "valoUnitario": 10,
-                "id": 4
-            }
-        ],
       }
+    },
+    setup() {
+      const store = useStore()
+      const products = computed(() => store.getters["product/getProducts"])
+      store.dispatch("product/fetchProducts")
+
+      return {
+        products,
+      };
     },
   }
 </script>

@@ -1,8 +1,8 @@
 <template>
-    <v-container>
+    <v-container class="px-5 py-5">
       <v-sheet class="mx-auto">
         <v-form ref="form" fast-fail @submit.prevent @submit="submitForm">
-          <v-row class="px-5 py-5">
+          <v-row>
             <v-col cols="12">
               <v-text-field
                 v-model="name"
@@ -53,7 +53,7 @@
 </template>
 
 <script>
-  import { validateCPF } from '@/plugins/cpfValidator'
+  import { validateCPF } from '@/plugins/utils'
 
   export default {
     props: ['customerToEdit'],

@@ -11,7 +11,7 @@
             color="primary"
             min-width="0"
             x-small
-            @click="$emit('editItem', item.columns.id)"
+            @click="$emit('edit-item', item.columns.id)"
             fab
             elevation="6"
         >
@@ -22,7 +22,7 @@
             color="red"
             min-width="0"
             x-small
-            @click="$emit('deleteItem', item.columns.id)"
+            @click="$emit('delete-item', item.columns.id)"
             fab
             elevation="6"
         >

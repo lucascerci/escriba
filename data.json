@@ -13,12 +13,6 @@
       "id": 9
     },
     {
-      "nome": "lucas teste",
-      "cpf": "11498029957",
-      "dataNascimento": "1999-11-20",
-      "id": 12
-    },
-    {
       "nome": "Lucas Pacheco Fernandes",
       "cpf": "11498029957",
       "dataNascimento": "1111-11-11",
@@ -35,24 +29,6 @@
       "cpf": "11498029957",
       "dataNascimento": "1999-11-20",
       "id": 23
-    },
-    {
-      "nome": "testecadastro",
-      "cpf": "11498029957",
-      "dataNascimento": "1999-11-20",
-      "id": 24
-    },
-    {
-      "nome": "tsadasd",
-      "cpf": "11498029957",
-      "dataNascimento": "1999-11-20",
-      "id": 25
-    },
-    {
-      "nome": "teste",
-      "cpf": "11498029957",
-      "dataNascimento": "1999-11-20",
-      "id": 27
     }
   ],
   "produtos": [

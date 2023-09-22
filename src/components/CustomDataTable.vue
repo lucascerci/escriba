@@ -1,5 +1,7 @@
 <script>
   import actionButtons from '@/components/ActionButton.vue'
+  import { formatCPF, formatDate, formatBRL } from '@/plugins/utils'
+
   export default {
     components: {
       'action-buttons': actionButtons,
@@ -25,23 +27,14 @@
       editItem (item) {
         this.$emit('edit-item', item)
       },
-      formatDate(inputDate) {
-        const parsedDate = new Date(inputDate);
-        if (isNaN(parsedDate)) {
-          return "";
-        }
-        const day = parsedDate.getDate();
-        const month = parsedDate.getMonth() + 1;
-        const year = parsedDate.getFullYear();
-        const formattedDate = `${day}/${month}/${year}`;
-        return formattedDate;
+      formatCpf (cpf) {
+        return formatCPF(cpf)
       },
-      formatCPF(cpf) {
-        cpf = cpf.replace(/\D/g, '');
-        if (cpf.length !== 11) {
-          return 'Invalid CPF';
-        }
-        return `${cpf.slice(0, 3)}.${cpf.slice(3, 6)}.${cpf.slice(6, 9)}-${cpf.slice(9)}`;
+      formatDate (date) {
+        return formatDate(date)
+      },
+      formatBRL (value) {
+        return formatBRL(value)
       }
   },
   }
@@ -83,8 +76,33 @@
     <template v-slot:item.dataNascimento="{ item }">
       {{ formatDate(item.columns.dataNascimento) }}
     </template>
+    <template v-slot:item.dataEmissao="{ item }">
+      {{ formatDate(item.columns.dataEmissao) }}
+    </template>
     <template v-slot:item.cpf="{ item }">
-      {{ formatCPF(item.columns.cpf) }}
+      {{ formatCpf(item.columns.cpf) }}
+    </template>
+    <template v-slot:item.valoUnitario="{ item }">
+      {{ formatBRL(item.columns.valoUnitario) }}
+    </template>
+    <template v-slot:item.valorTotal="{ item }">
+      {{ formatBRL(item.columns.valorTotal) }}
+    </template>
+    <template v-slot:item.cliente="{ item }">
+      {{ item.columns.cliente.nome }}
+    </template>
+    <template v-slot:item.itens="{ item }">
+      <v-btn
+            class="px-1 ml-1"
+            color="orange"
+            min-width="0"
+            x-small
+            @click="$emit('see-items', item.columns.itens)"
+            fab
+            elevation="6"
+        >
+        {{ item.columns.itens.length }} Itens
+      </v-btn>
     </template>
     <template v-slot:bottom>
         <div class="text-center pt-2">

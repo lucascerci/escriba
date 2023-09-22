@@ -1,9 +1,13 @@
 <script>
   import CustomDataTable from '@/components/CustomDataTable.vue'
+  import ItemsView from '@/views/Requests/ItemsView.vue'
+  import { computed } from "vue"
+  import { useStore } from "vuex"
 
   export default {
     components: {
-      'custom-data-table': CustomDataTable
+      'custom-data-table': CustomDataTable,
+      'items-view': ItemsView
     },
     data () {
       return {
@@ -20,40 +24,28 @@
           { align: 'center', title: 'Valor Total', sortable: false, key: 'valorTotal' },
           { align: 'center', title: 'Itens', sortable: false, key: 'itens' },
         ],
-        requests: [
-          {
-            "id": 1,
-            "cliente": {
-              "id": 1,
-              "nome": "cliente 1"
-            },
-            "dataEmissao": "2019-01-01",
-            "valorTotal": 76.64,
-            "itens": [
-              {
-                "id": 1,
-                "produto": {
-                  "id": 1,
-                  "descricao": "produto 1"
-                },
-                "valor": 10,
-                "quantidade": 5,
-                "subtotal": 50
-              },
-              {
-                "id": 2,
-                "produto": {
-                  "id": 2,
-                  "descricao": "produto 2"
-                },
-                "valor": 8.88,
-                "quantidade": 3,
-                "subtotal": 26.64
-              }
-            ]
-          }
-        ],
+        itemsDialog: false,
+        selectedItens: null,
       }
+    },
+    methods: {
+      openItemsModal (itens) {
+        this.selectedItens = itens
+        this.itemsDialog = true
+      },
+      closeItemsModal () {
+        this.selectedRequest = null
+        this.itemsDialog = false
+      }
+    },
+    setup() {
+      const store = useStore()
+      const requests = computed(() => store.getters["requests/getRequests"])
+      store.dispatch("requests/fetchRequests")
+
+      return {
+        requests,
+      };
     },
   }
 </script>
@@ -63,10 +55,16 @@
     <v-responsive class="align-center text-center fill-height">
       <v-row class="customers">
         <v-col cols="12">
-          <custom-data-table title="Pedidos" :headers="headers" :items="requests" :itemsPerPage="itemsPerPage" />
+          <custom-data-table title="Pedidos" :headers="headers" :items="requests" :itemsPerPage="itemsPerPage" @see-items="openItemsModal" />
         </v-col>
       </v-row>
     </v-responsive>
+    <v-dialog
+        v-model="itemsDialog"
+        width="auto"
+      >
+        <items-view :items="selectedItens" @close-items-modal="closeItemsModal" />
+      </v-dialog>
 </v-container>
 </template>
 
