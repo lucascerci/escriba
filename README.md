@@ -13,23 +13,23 @@ escriba-front-test
     └── store
     │   └── index.js
     │   └── modules
-    │        └── customer
-    │        └── products
-    │
+    │   │    └── customer
+    │   │    └── products
+    │   └── api.js
     └── views
-        └── Customers
-          └── CustomersView.vue
-          └── CustomersCreate.vue
-          └── CustomersEdit.vue
-          └── CustomersForm.vue
-        └── Products
+    │   └── Customers
+    │     └── CustomersView.vue
+    │     └── CustomersCreate.vue
+    │     └── CustomersEdit.vue
+    │     └── CustomersForm.vue
+    │     └── Products
 ```
 Estrutura do projeto:
-- Dentro de componentes coloquei os componentes que são utilizados globalmente.
-- Em plugins centralizei as bibliotecas para tornar mais facil a manutenção e a adição de novas sem ocupar muito espaço dentro do main.js.
-- A estrutura de Store com vuex foi feita de uma forma escalavel onde se pode adicionar novos modulos de uma maneira facil.
-- Views utilizei o exemplo de Customers, que utiliza a API 'Pessoas'. Fiz uma estrutura onde tanto para o Edit quanto para
-o Create é utilizado o mesmo form, sendo assim menos linha de codigo e utilizando a ideia da componetização ao maximo.
+- Dentro de componentes estão os componentes dinamicos para serem reutilizados em diferentes views.
+- Em plugins estão centralizadas as bibliotecas para tornar a manutenção das mesmas e a adição de novas simples.
+- Store com vuex foi feita de uma forma escalavel onde se pode adicionar novos modulos de uma maneira facil.
+- Contiuando em Store foi criado o arquivo api.js que centraliza a url em um só lugar vindo .env, para que se precisar alterar depois seja apenas ali e não dentro de  todos os modulos, facilitando assim a manutenção do projeto.
+- Views utilizei o exemplo de Customers, que utiliza a API 'Pessoas'. Fiz uma estrutura onde tanto para o Edit quanto para o Create é utilizado o mesmo form, sendo assim menos linha de codigo e utilizando a ideia da componetização ao maximo.
 
 ## Installing 
 ```
