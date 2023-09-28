@@ -1,4 +1,4 @@
-# Escriba Test
+# Escriba
 
 Tecnologias usadas: Vue3, Vuetify, Vue Router, Vuex e Axios.
 
